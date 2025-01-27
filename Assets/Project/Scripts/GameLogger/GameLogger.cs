@@ -4,7 +4,7 @@ namespace Project.Scripts
     {
         private static LogLevel _logLevel;
         private static ILoggingService _loggingService = new UnityLoggingService();
-        private static readonly StringMessageBuilder _messageBuilder = new StringMessageBuilder();
+        private static readonly IStringMessageBuilder _messageBuilder = new StringMessageBuilder();
 
 #if UNITY_EDITOR
         static GameLogger()
@@ -12,18 +12,19 @@ namespace Project.Scripts
             _logLevel = LogLevel.T;
         }
 #elif DEVELOPMENT_BUILD
-    static GameLogger()
-    {
-        _logLevel = LogLevel.Trace;
-    }
+        static GameLogger()
+        {
+            _logLevel = LogLevel.Trace;
+        }
 #else
-    static GameLogger()
-    {
-        _logLevel = LogLevel.Error;
-    }
+        static GameLogger()
+        {
+            _logLevel = LogLevel.Error;
+        }
 #endif
 
-        public static void Log(object content, LogLevel logLevel)
+        // Private log method (only used internally)
+        private static void Log(object content, LogLevel logLevel)
         {
             if (logLevel >= _logLevel)
             {
@@ -37,6 +38,7 @@ namespace Project.Scripts
             }
         }
 
+        // Public methods for specific log levels
         public static void LogTrace(object content) => Log(content, LogLevel.T);
         public static void LogDebug(object content) => Log(content, LogLevel.D);
         public static void LogInformation(object content) => Log(content, LogLevel.I);
@@ -47,13 +49,11 @@ namespace Project.Scripts
 
     public enum LogLevel
     {
-        T,
-        D,
-        I,
-        W,
-        E,
-        C
+        T, // Trace
+        D, // Debug
+        I, // Information
+        W, // Warning
+        E, // Error
+        C  // Critical
     }
-
-
 }
