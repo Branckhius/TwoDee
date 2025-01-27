@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f806d60c-5fe2-4b3b-baf8-3dd648275ac0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/GameLogger.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/GameLogger/ILoggingService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/GameLogger/ILoggingService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/GameLogger/UnityLoggingService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/GameLogger/UnityLoggingService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/StringMessageBuilder.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/StringMessageBuilder/IStringMessageBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/StringMessageBuilder/IStringMessageBuilder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/StringMessageBuilder/StringMessageBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/StringMessageBuilder/StringMessageBuilder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TwoDee/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CaracterPrincipal.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CaracterPrincipal/CharacterController.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CaracterPrincipal/CharacterController.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CaracterPrincipal/PrincWalking3.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CaracterPrincipal/PrincWalking3.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CaracterPrincipal/cute_angry_slime_character_facing_right-removebg-preview-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CaracterPrincipal/cute_angry_slime_character_facing_right-removebg-preview-removebg-preview.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/MediationAdapterDependencies.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/MediationAdapterDependencies.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.IOSResolver.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.IOSResolver.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.JarResolver.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.JarResolver.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.VersionHandler.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.VersionHandler.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.VersionHandlerImpl.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/Google.VersionHandlerImpl.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/mobile-dependency-resolver.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MobileDependencyResolver/Editor/mobile-dependency-resolver.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor/DiagnosticsHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor/DiagnosticsHelper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor/MessagePipe.Editor.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor/MessagePipe.Editor.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor/MessagePipeDiagnosticsInfoTreeView.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor/MessagePipeDiagnosticsInfoTreeView.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor/MessagePipeDiagnosticsInfoWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor/MessagePipeDiagnosticsInfoWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor/SplitterGUILayout.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Editor/SplitterGUILayout.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/AsyncMessageBroker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/AsyncMessageBroker.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/AsyncMessageBroker_Key.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/AsyncMessageBroker_Key.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/AsyncRequestHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/AsyncRequestHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/AttributeFilterProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/AttributeFilterProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/DisposableBag.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/DisposableBag.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Disposables.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Disposables.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/DistributedSubscriberExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/DistributedSubscriberExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/EventFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/EventFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/FilterAttachedAsyncMessageHandlerFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/FilterAttachedAsyncMessageHandlerFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/FilterAttachedAsyncRequestHandlerFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/FilterAttachedAsyncRequestHandlerFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/FilterAttachedMessageHandlerFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/FilterAttachedMessageHandlerFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/FilterAttachedRequestHandlerFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/FilterAttachedRequestHandlerFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/GlobalMessagePipe.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/GlobalMessagePipe.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/IDistributedPubSub.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/IDistributedPubSub.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/IPublisherSubscriber.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/IPublisherSubscriber.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/IRequestHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/IRequestHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/IgnoreAutoRegistration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/IgnoreAutoRegistration.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/InMemoryDistributedPubSub.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/InMemoryDistributedPubSub.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/ArrayUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/ArrayUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/AsyncHandlerWhenAll.AwaiterNode.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/AsyncHandlerWhenAll.AwaiterNode.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/AsyncHandlerWhenAll.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/AsyncHandlerWhenAll.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/AsyncRequestHandlerWhenAll.Awaiter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/AsyncRequestHandlerWhenAll.Awaiter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/AsyncRequestHandlerWhenAll.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/AsyncRequestHandlerWhenAll.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/FastQueue.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/FastQueue.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/FilterDefinition.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/FilterDefinition.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/FreeList.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/FreeList.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/PoolStack.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/PoolStack.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/Preserve.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/Preserve.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/TaskExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/TaskExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/TypeCollector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/TypeCollector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/TypeExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Internal/TypeExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessageBroker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessageBroker.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessageBroker_Key.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessageBroker_Key.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessagePipe.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessagePipe.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessagePipeDiagnosticsInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessagePipeDiagnosticsInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessagePipeFilter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessagePipeFilter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessagePipeOptions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/MessagePipeOptions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/PredicateFilter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/PredicateFilter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/RequestHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/RequestHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/ServiceCollectionExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/ServiceCollectionExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/SubscriberExtensions.AsAsyncEnumerable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/SubscriberExtensions.AsAsyncEnumerable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/SubscriberExtensions.AsObservable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/SubscriberExtensions.AsObservable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/SubscriberExtensions.FirstAsync.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/SubscriberExtensions.FirstAsync.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/SubscriberExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/SubscriberExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Unity/BuiltinContainerBuilder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Unity/BuiltinContainerBuilder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Unity/DependencyInjectionShims.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Unity/DependencyInjectionShims.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Unity/InternalVisibleTo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Unity/InternalVisibleTo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Unity/TaskShims.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/Runtime/Unity/TaskShims.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/MessagePipe/package.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Prefabs/App.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Prefabs/App/AppScope.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Prefabs/App/AppScope.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Prefabs/App/GameScope.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Prefabs/App/GameScope.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Prefabs/App/SplashScreen.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Prefabs/App/SplashScreen.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scenes/MainScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scenes/MainScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/ScriptableObjects.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/ScriptableObjects/AppScopeConfiguration.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/ScriptableObjects/AppScopeConfiguration.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/ScriptableObjects/ChildScopeConfiguration.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/ScriptableObjects/ChildScopeConfiguration.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/AppManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/AppManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/AppScope.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/AppScope.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/AppScopeConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/AppScopeConfiguration.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/Scope.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/Scope/ChildScopeConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/Scope/ChildScopeConfiguration.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/Scope/ChildScopeService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/Scope/ChildScopeService.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/Scope/IChildScopeService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/App/Scope/IChildScopeService.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Constants.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Constants/ScopeNames.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Constants/ScopeNames.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/GameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/GameManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/GameStateBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/GameStateBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/IGameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/IGameManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/IGameStateBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/IGameStateBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/States.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/States/GameStateGameplayOrResume.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameManager/States/GameStateGameplayOrResume.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameScope.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Game/GameScope.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Messages.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Messages/Requests.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Messages/Requests/Game.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Messages/Requests/Game/CreateScopeReqRes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Messages/Requests/Game/CreateScopeReqRes.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Messages/Requests/Game/DisposeScopeReqRes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Messages/Requests/Game/DisposeScopeReqRes.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Messages/Requests/Game/FetchScopeReqRes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Messages/Requests/Game/FetchScopeReqRes.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Tools.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Tools/ObjectExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proiect/Scripts/Tools/ObjectExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BillingMode.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BillingMode.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Lit2DSceneTemplate.scenetemplate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Lit2DSceneTemplate.scenetemplate.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Renderer2D.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Renderer2D.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Scenes/URP2DSceneTemplate.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Scenes/URP2DSceneTemplate.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.services.mediation/Settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameLogger.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2pAkJ2aQK1x4SnQ533eI3l2U0vf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.42f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath D:\TwoDeeGit\TwoDee -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\TwoDeeGit\TwoDee" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.42f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\TwoDeeGit\TwoDee -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\TwoDeeGit\TwoDee" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f806d60c-5fe2-4b3b-baf8-3dd648275ac0" name="Changes" comment="" />
+      <created>1732216193554</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732216193554</updated>
+      <workItem from="1732216196394" duration="3550000" />
+      <workItem from="1732225619769" duration="40000" />
+      <workItem from="1732267011912" duration="13000" />
+      <workItem from="1733161029439" duration="6459000" />
+      <workItem from="1733335600626" duration="1171000" />
+      <workItem from="1737632122741" duration="8395000" />
+      <workItem from="1737994465271" duration="748000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
