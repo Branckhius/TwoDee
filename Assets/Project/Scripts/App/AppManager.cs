@@ -50,7 +50,7 @@ namespace Project.Scripts.App
             catch (Exception e)
             {
                 // Log error using GameLogger
-                GameLogger.Log($"Exception occurred: {e.Message}", LogLevel.E);
+                GameLogger.LogError($"Exception occurred: {e.Message}");
                 throw;
             }
         }
@@ -58,7 +58,7 @@ namespace Project.Scripts.App
         private async UniTask RunInitialState(CancellationToken cancellationToken)
         {
             // Log information using GameLogger
-            GameLogger.Log("Run initial state", LogLevel.I);
+            GameLogger.LogInformation("Run initial state");
         }
 
         private async UniTask RunLoadingState(CancellationToken cancellationToken)
@@ -66,7 +66,7 @@ namespace Project.Scripts.App
             await UniTask.NextFrame(cancellationToken); // Must wait at least one frame before creating child scope
             
             // Log information using GameLogger
-            GameLogger.Log("Run loading state", LogLevel.I);
+            GameLogger.LogInformation("Run loading state");
             
             var gameScope = default(GameScope);
             try
@@ -79,7 +79,7 @@ namespace Project.Scripts.App
             catch (TargetInvocationException ex)
             {
                 // Log error using GameLogger
-                GameLogger.Log($"Scope creation failed: {ex.InnerException?.Message}", LogLevel.E);
+                GameLogger.LogError($"Scope creation failed: {ex.InnerException?.Message}");
 
                 if (ex.InnerException == null)
                     throw;
@@ -93,7 +93,7 @@ namespace Project.Scripts.App
         private async UniTask RunPlayingState(CancellationToken cancellationToken)
         {
             // Log information using GameLogger
-            GameLogger.Log("Run playing state", LogLevel.I);
+            GameLogger.LogInformation("Run playing state");
         
             var gameScope = _scopeRetriever.Invoke(new FetchScopeRequest{ scopeName = ScopeNames.GAME_SCOPE });
             var gameManager = gameScope.scope.Container.Resolve<IGameManager>();
