@@ -1,4 +1,4 @@
-namespace Project.Scripts.Constants
+    namespace Project.Scripts.Constants
 {
     public class LocalData
     {

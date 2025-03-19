@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using LWFlo.Tools;
 using MessagePipe;
 using Project.Scripts.Messages.Requests.Game;
-using Project.Scripts.Tools;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -22,6 +22,7 @@ namespace Project.Scripts.App.Scope
         {
             _scopePrefabs = config.scopes.ToDictionary(v => v.name, v => v);
             _activeScopes = new Dictionary<string, LifetimeScope>();
+            
         }
 
         public LifetimeScope CreateChildScope(LifetimeScope parentScope, string childName, 

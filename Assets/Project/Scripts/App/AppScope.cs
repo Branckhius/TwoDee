@@ -5,11 +5,18 @@ using VContainer.Unity;
 
 namespace Project.Scripts.App
 {
-    public class AppScope : LifetimeScope, IStartable
+    public class AppScope : LifetimeScope
     {
         [SerializeField] private AppScopeConfiguration _config;
 
-        public void Start()
+        protected override void Awake()
+        {
+            DontDestroyOnLoad(gameObject);
+            
+            base.Awake();
+        }
+
+        private void Start()
         {
             AppStartup();
         }

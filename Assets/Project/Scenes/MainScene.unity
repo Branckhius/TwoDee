@@ -213,9 +213,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6698565011291297746, guid: ea13f35fde18d534f8efb15a4ba5185a, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698565011291297747, guid: ea13f35fde18d534f8efb15a4ba5185a, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698565011291297747, guid: ea13f35fde18d534f8efb15a4ba5185a, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6698565011291297748, guid: ea13f35fde18d534f8efb15a4ba5185a, type: 3}
       propertyPath: m_Name
       value: SplashScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698565011827356884, guid: ea13f35fde18d534f8efb15a4ba5185a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -60.89148
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698565011827356885, guid: ea13f35fde18d534f8efb15a4ba5185a, type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea13f35fde18d534f8efb15a4ba5185a, type: 3}
