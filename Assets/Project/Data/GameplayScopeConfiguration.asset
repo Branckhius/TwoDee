@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d57248a53b2413c9617d8283f987a96, type: 3}
+  m_Name: GameplayScopeConfiguration
+  m_EditorClassIdentifier: 
+  GameplayBG: {fileID: 6556749953480610096, guid: cbee892ec50aa7b4ba4540e912414e69, type: 3}
+  Floor: {fileID: 8458788614711714507, guid: 3b6122066def3e64faafa3d5eb5400d2, type: 3}
+  Player: {fileID: 5471816102449273087, guid: 7aab81a3aa40ebc4aaa375170a534012, type: 3}
+  Enemy: {fileID: 4418546513642271442, guid: 7fa0ddfe6e0856047a55002ea1303d97, type: 3}
+  Floor2: {fileID: 8458788614711714507, guid: 699959cc28941bb408d70bace4ec1aaf, type: 3}
+  JumpPlace: {fileID: 1834149825395665194, guid: 12cf64fbfe6789649819cdb2ebc2e1b5, type: 3}
+  DownPlace: {fileID: 1834149825395665194, guid: 78ecf7fd0ced614418da95cd56f86787, type: 3}
+  Trick: {fileID: 7893939611849380497, guid: d9e73cb6f2a846141810060e4c591c2b, type: 3}
+  Glock: {fileID: 6624130355294542769, guid: 7a38bd92504d59f4088249808699bde6, type: 3}
+  GlockBullet: {fileID: 1273324873308384663, guid: be4039c4e85062341a204ba6d1d2ad38, type: 3}
+  PlayerHealth: {fileID: 7324604181523400504, guid: 3413caeddac893743895a36f90886c51, type: 3}
+  EnemyHealth: {fileID: 7659730555579129038, guid: 2b4bd2259bb00c94c9a665d09a35301a, type: 3}

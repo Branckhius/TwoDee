@@ -20,7 +20,7 @@ namespace Project.Scripts.App
         private readonly LifetimeScope _currentScope;
     
         private readonly IRequestHandler<CreateScopeRequest, CreateScopeResponse> _scopeCreator;
-        private readonly IRequestHandler<FetchScopeRequest, FetchScopeResponse> _scopeRetriever;
+        private readonly IRequestHandler<FetchScopeRequest, FetchScopeResponse> _scopeRetriever; //da
 
         private Exception _exception;
 
