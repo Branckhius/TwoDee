@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f806d60c-5fe2-4b3b-baf8-3dd648275ac0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TwoDee/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TwoDee/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Scenes/MainScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Scenes/MainScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Scripts/App/AppManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Scripts/App/AppManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Scripts/App/AppScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Scripts/App/AppScope.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TwoDee/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Meniu/ContinueGameText.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Meniu/ContinueGameText.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Meniu/ExitText.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Meniu/ExitText.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Meniu/InventoryText.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Meniu/InventoryText.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Meniu/NewGameText.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Meniu/NewGameText.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Meniu/OptionsText.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Meniu/OptionsText.aseprite.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Scripts/Game/GameManager/States/GameStateGameplayOrResume.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/GameManager/States/GameStateGameplayOrResume.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,19 +39,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.42f1\Editor\Unity.exe" />
@@ -73,6 +75,9 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
       <option name="selectedOptions">
         <list />
       </option>
@@ -83,6 +88,9 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
       <option name="selectedOptions">
         <list />
       </option>
@@ -106,6 +114,7 @@
       <workItem from="1737994465271" duration="748000" />
       <workItem from="1738759324505" duration="32387000" />
       <workItem from="1738835921566" duration="14104000" />
+      <workItem from="1742386561931" duration="83000" />
     </task>
     <servers />
   </component>

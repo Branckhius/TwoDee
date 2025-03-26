@@ -207,7 +207,8 @@ namespace Project.Scripts.Game.GameManager
         {
             if (_wasDisposed == true)
                 return UniTask.FromCanceled(cancellationToken);
-
+            if (_queuedRequest != null)
+                Debug.LogWarning("[GameManager] _queuedRequest was already set! Overwriting...");
             if (IsTopPendingCompletion() == true )
                 return UniTask.
                     WaitUntil(() => IsTopPendingCompletion() == false, cancellationToken: cancellationToken)

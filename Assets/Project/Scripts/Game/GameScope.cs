@@ -30,6 +30,7 @@ namespace Project.Scripts.Game
             
             builder.Register<GameManager.GameManager>(Lifetime.Singleton)
                 .As<IGameManager>();
+            
         }
     }
 }

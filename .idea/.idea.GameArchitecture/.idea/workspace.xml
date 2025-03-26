@@ -18,6 +18,8 @@
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/GameplayScope.cs.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/GameplayScopeConfiguration.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/GameplayScopeConfiguration.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/Player/HealthTextUpdater.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/Player/HealthTextUpdater.cs.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/Player/IPlayerHealth.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/Player/IPlayerHealth.cs.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/Player/PlayerHealth.cs" afterDir="false" />
@@ -82,6 +84,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/ad/5f3da708/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/Player/HealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/TestLaunchers/PlayerLauncherContextSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -183,7 +194,11 @@
       <workItem from="1741792209614" duration="7777000" />
       <workItem from="1741962934706" duration="3220000" />
       <workItem from="1742317580376" duration="12557000" />
-      <workItem from="1742338914827" duration="6676000" />
+      <workItem from="1742338914827" duration="7791000" />
+      <workItem from="1742386649386" duration="70000" />
+      <workItem from="1742466787089" duration="5514000" />
+      <workItem from="1742576017839" duration="16458000" />
+      <workItem from="1742819779584" duration="31665000" />
     </task>
     <servers />
   </component>
@@ -199,24 +214,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Project/Scripts/Game/GameManager/States/GameStateGameplay.cs</url>
-          <line>54</line>
-          <properties documentPath="D:\IntrunFolder\GameArchitecture\Assets\Project\Scripts\Game\GameManager\States\GameStateGameplay.cs" containingFunctionPresentation="Method 'OnRun'">
-            <startOffsets>
-              <option value="1738" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1739" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

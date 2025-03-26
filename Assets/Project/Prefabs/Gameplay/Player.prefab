@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5496870886088186550}
   - component: {fileID: 5072948882445154251}
   - component: {fileID: -3749284576383347127}
-  - component: {fileID: 6680243117017000114}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -40,7 +39,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 3.86, y: 0}
   m_SizeDelta: {x: 7.1, y: 6.21}
   m_Pivot: {x: 0.5042254, y: -0.2028985}
 --- !u!212 &2106044160433981828
@@ -155,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 150
+  healthBar: {fileID: 0}
 --- !u!114 &5072948882445154251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,19 +195,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &6680243117017000114
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5471816102449273087}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.05, y: 4.365}
-  m_Size: {x: 6.3, y: 4.6}
-  m_Direction: 0

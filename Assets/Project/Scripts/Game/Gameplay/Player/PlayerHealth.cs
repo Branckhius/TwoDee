@@ -12,18 +12,21 @@ namespace Project.Scripts.Game.Gameplay.Player
         private int currentHealth;
         private Animator animator;
 
-
+        public HealthBar healthBar;
 
         void Start()
         {
             currentHealth = maxHealth;
             animator = GetComponent<Animator>();
+            healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetHealth(currentHealth);
 
         }
 
         public void TakeDamage(int damage)
         {
             currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
 
             Debug.Log($"Player took {damage} damage. Current HP: {currentHealth}");
 
@@ -53,6 +56,7 @@ namespace Project.Scripts.Game.Gameplay.Player
         {
             currentHealth = Mathf.Clamp((int)health, 0, maxHealth);
             Debug.Log($"Player health set to {currentHealth}");
+            healthBar?.SetHealth(currentHealth);
         }
     }
 }

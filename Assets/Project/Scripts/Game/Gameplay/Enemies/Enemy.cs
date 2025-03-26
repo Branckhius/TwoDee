@@ -16,53 +16,63 @@
         private Animator animator;
         private Transform player;
         private EnemyAI enemyAI;
+        public HealthBar healthBarEnemy;
 
         void Start()
         {
             // Initializarea sănătății folosind clasa Health
             health = new Health(maxHealth);
             animator = GetComponent<Animator>();
+            healthBarEnemy.SetMaxHealth(maxHealth);
+            healthBarEnemy.SetHealth(health.CurrentHealth);
             player = GameObject.FindGameObjectWithTag("Player").transform;
             enemyAI = GetComponent<EnemyAI>();
         }
 
-void Update()
-{
-    if (player != null)
-    {
-        // Verifică distanța dintre inamic și jucător
-        float distance = Vector2.Distance(transform.position, player.position);
-
-        // Logica pentru a face inamicul să se uite către jucător
-        if (player.position.x < transform.position.x)
+        void Update()
         {
-            if (transform.localScale.x > 0) // Dacă inamicul se uită deja la stânga, nu face nimic
+            if (player != null)
             {
-                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                // Verifică distanța dintre inamic și jucător
+                float distance = Vector2.Distance(transform.position, player.position);
+
+                // Logica pentru a face inamicul să se uite către jucător
+                if (player.position.x < transform.position.x)
+                {
+                    if (transform.localScale.x > 0) // Dacă inamicul se uită deja la stânga, nu face nimic
+                    {
+                        transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                    }
+                }
+                else
+                {
+                    if (transform.localScale.x < 0) // Dacă inamicul se uită deja la dreapta, nu face nimic
+                    {
+                        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                    }
+                }
+
+                // Dacă este în intervalul de atac și poate ataca, execută atacul
+                if (distance <= attackRange && canAttack)
+                {
+                    Attack();
+                }
             }
         }
-        else
+        
+        private void StopAttackAnimation()
         {
-            if (transform.localScale.x < 0) // Dacă inamicul se uită deja la dreapta, nu face nimic
-            {
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
+            animator.SetBool("IsAttacking", false);
         }
-
-        // Dacă este în intervalul de atac și poate ataca, execută atacul
-        if (distance <= attackRange && canAttack)
-        {
-            Attack();
-        }
-    }
-}
-
 
         public void TakeDamage(int damage)
         {
             if (isDead) return;
 
             health.Reduce(damage);
+            healthBarEnemy.SetHealth(health.CurrentHealth);
+
+
             Debug.Log($"Enemy took {damage} damage. Current HP: {health.CurrentHealth}");
 
             // Oprește mișcarea inamicului
@@ -92,12 +102,18 @@ void Update()
         private void Attack()
         {
             canAttack = false;
-
+            Invoke(nameof(StopAttackAnimation), 0.5f);
             float randomAttack = Random.Range(0, 2.5f);
             if (randomAttack == 0)
+            {
                 animator.SetTrigger("Attack1");
+                animator.SetInteger("attackType",0);
+            }
             else
+            {
                 animator.SetTrigger("Attack2");
+                animator.SetInteger("attackType", 1);
+            }
 
             Invoke(nameof(DealDamageToPlayer), 0.5f);
             Invoke(nameof(ResetAttack), attackCooldown);

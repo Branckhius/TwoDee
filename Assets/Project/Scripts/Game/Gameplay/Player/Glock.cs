@@ -14,6 +14,8 @@ namespace Project.Scripts.Game.Gameplay.Player
         private const int maxShots = 7; // Numărul maxim de focuri înainte de reload
         public Transform firePoint; // Locul de unde iese glonțul
         public GameplayScopeConfiguration gameplayConfig;
+        private GameObject shotsShot;
+        private GameObject gameplayScope;
 
         void Start()
         {
@@ -21,6 +23,9 @@ namespace Project.Scripts.Game.Gameplay.Player
             firePoint = new GameObject("FirePoint").transform;
             firePoint.SetParent(transform); // Face parte din Glock
             firePoint.localPosition = new Vector3(0.21f, 0.138f, 0);
+            shotsShot = new GameObject("ShotsShot");
+            gameplayScope = GameObject.Find("Gameplay(Clone)"); 
+            shotsShot.transform.SetParent(gameplayScope.transform);
         }
 
         void Update()
@@ -46,6 +51,8 @@ namespace Project.Scripts.Game.Gameplay.Player
 
             // Instanțiază glonțul
             GameObject bullet = Instantiate(gameplayConfig.GlockBullet, firePoint.position, Quaternion.identity,gameObject.transform);
+            bullet.transform.SetParent(shotsShot.transform);
+
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
             if (rb != null)

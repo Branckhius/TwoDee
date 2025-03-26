@@ -1,3 +1,4 @@
+using Project.Scripts.Game.Gameplay.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ namespace Project.Scripts.Game.Gameplay.CanvasBG
             _gameCamera = gameCamera;
         }
 
-        public void CreateGameplayCanvas(GameObject gameplayBGPrefab, GameObject playerHealthPrefab)
+        public void CreateGameplayCanvas(GameObject gameplayBGPrefab, GameObject playerHealthPrefab,GameObject player)
         {
             // Creare Canvas pentru Background
             GameObject canvasObj = new GameObject("GameplayCanvas");
@@ -44,6 +45,7 @@ namespace Project.Scripts.Game.Gameplay.CanvasBG
                 bgRectTransform.offsetMax = Vector2.zero;
             }
 
+
             // Instanțiere Player Health UI în același Canvas
             GameObject playerHealthUI = GameObject.Instantiate(playerHealthPrefab, canvasObj.transform);
 
@@ -51,10 +53,20 @@ namespace Project.Scripts.Game.Gameplay.CanvasBG
             RectTransform healthRectTransform = playerHealthUI.GetComponent<RectTransform>();
             if (healthRectTransform != null)
             {
-                healthRectTransform.anchorMin = new Vector2(0.5f, 1f);
-                healthRectTransform.anchorMax = new Vector2(0.5f, 1f);
-                healthRectTransform.pivot = new Vector2(0.5f, 1f);
+                // Setăm ancorarea în colțul din dreapta sus
+                healthRectTransform.anchorMin = new Vector2(0f, 1f);
+                healthRectTransform.anchorMax = new Vector2(0f, 1f);
+                healthRectTransform.pivot = new Vector2(1f, 1f); // Pivot în dreapta sus
+
+                // Poziționăm cu un offset mic față de margini
+                healthRectTransform.anchoredPosition = new Vector2(1000, 270); 
             }
+
+            PlayerHealth playerHealth=player.GetComponent<PlayerHealth>();
+            playerHealth.healthBar=playerHealthUI.GetComponent<HealthBar>();
+            
+
+
         }
 
     }

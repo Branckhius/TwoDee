@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Project.Scripts.Game.GameManager
 {
@@ -15,6 +16,7 @@ namespace Project.Scripts.Game.GameManager
         
         public UniTask Run(TContext context, CancellationToken cancellationToken)
         {
+
             _isRunning = true;
             _context = context;
             
@@ -28,6 +30,8 @@ namespace Project.Scripts.Game.GameManager
             _isSuspended = true;
             OnSuspend();
         }
+        
+        
 
         public void Resume()
         {

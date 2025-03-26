@@ -1,7 +1,9 @@
 using System.Threading;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using MessagePipe;
 using Project.Scripts.Constants;
+using Project.Scripts.DataCore.DataStructure;
 using Project.Scripts.Game.Menu;
 using Project.Scripts.Game.UI.SceneSystem;
 using Project.Scripts.Messages.Requests.Game;
@@ -22,6 +24,8 @@ namespace Project.Scripts.Game.GameManager.States
         private readonly ISceneSystem _sceneSystem;
         private IGameManager _gameManager;
 
+        private TaskCompletionSource<string> _buttonPressedTCS = new(); // Task pentru butoane
+
         [Inject]
         public GameStateMenu(LifetimeScope currentScope, 
             IRequestHandler<CreateScopeRequest, CreateScopeResponse> scopeCreator, 
@@ -32,6 +36,7 @@ namespace Project.Scripts.Game.GameManager.States
             _scopeCreator = scopeCreator;
             _sceneSystem = sceneSystem;
             _gameManager = gameManager; // Salvăm referința
+            UniTask.DelayFrame(1);
         }
 
         protected override async UniTask OnRun(CancellationToken cancellationToken)
@@ -104,9 +109,7 @@ namespace Project.Scripts.Game.GameManager.States
                     splashCanvas.planeDistance = 1f;
                 }
             }
-            Debug.Log("-----------------");
-            Debug.Log(_gameManager.GetCurrentState());
-            Debug.Log("-----------------");
+
             Debug.Log("Menu UI configurat corect!");
 
             GameObject labelsParent = new GameObject("LabelsParent");
@@ -123,24 +126,43 @@ namespace Project.Scripts.Game.GameManager.States
             buttonsParent.transform.SetParent(canvasObject.transform);
             buttonsParent.transform.localPosition = Vector3.zero;
             buttonsParent.transform.localScale = Vector3.one;
-
+            
             Object.Instantiate(menuConfig.newGameText, new Vector3(0, 268, 0), Quaternion.identity, textParent.transform).transform.localScale = new Vector3(200, 200, 200);
             Object.Instantiate(menuConfig.continueGameText, new Vector3(187, 130, 0), Quaternion.identity, textParent.transform).transform.localScale=new Vector3(200,200,200);
             Object.Instantiate(menuConfig.inventoryText, new Vector3(0, -32, 0), Quaternion.identity, textParent.transform).transform.localScale=new Vector3(200,200,200);
             Object.Instantiate(menuConfig.optionsText, new Vector3(50, -254, 0), Quaternion.identity, textParent.transform).transform.localScale=new Vector3(200,200,200);
             Object.Instantiate(menuConfig.exitText, new Vector3(20, -573, 0), Quaternion.identity, textParent.transform).transform.localScale=new Vector3(200,200,200);
 
-            CreateLabelWithButton(menuConfig.newGameLabel, new Vector3(0, 350, 0), new Vector3(140, 170, 1), OnNewGamePressed);
-            CreateLabelWithButton(menuConfig.continueGameLabel, new Vector3(0, 160, 0), new Vector3(140, 170, 1), null);
-            CreateLabelWithButton(menuConfig.inventoryLabel, new Vector3(0, -30, 0), new Vector3(140, 170, 1), null);
-            CreateLabelWithButton(menuConfig.optionsLabel, new Vector3(0, -220, 0), new Vector3(140, 170, 1), null);
-            CreateLabelWithButton(menuConfig.exitLabel, new Vector3(0, -550, 0), new Vector3(100, 170, 1), null);
+            CreateLabelWithButton(menuConfig.newGameLabel, new Vector3(0, 350, 0), new Vector3(140, 170, 1), () => OnButtonPressed("NewGame"));
+            CreateLabelWithButton(menuConfig.continueGameLabel, new Vector3(0, 160, 0), new Vector3(140, 170, 1), () => OnButtonPressed("Continue"));
+            CreateLabelWithButton(menuConfig.inventoryLabel, new Vector3(0, -30, 0), new Vector3(140, 170, 1), () => OnButtonPressed("Inventory"));
+            CreateLabelWithButton(menuConfig.optionsLabel, new Vector3(0, -220, 0), new Vector3(140, 170, 1), () => OnButtonPressed("Options"));
+            CreateLabelWithButton(menuConfig.exitLabel, new Vector3(0, -550, 0), new Vector3(100, 170, 1), () => OnButtonPressed("Exit"));
 
+            Debug.Log("Așteptăm apăsarea unui buton...");
+
+            // Așteptăm să fie apăsat un buton
+            string buttonName = await _buttonPressedTCS.Task;
+
+            Debug.Log($"Buton apăsat: {buttonName}");
+            
+            if (buttonName == "NewGame")
+            {
+                Object.Destroy(scene.gameObject);
+                _buttonPressedTCS = new TaskCompletionSource<string>(); // Resetăm task-ul pentru butoane
+                var gameplayContext = new GameStateGameplay.Context(new GameData());
+                _gameManager.EnqueueSwitchState<GameStateGameplay, GameStateGameplay.Context>(gameplayContext);
+            }
+            else if (buttonName == "Exit")
+            {
+                Debug.Log("Ieșim din joc!");
+                Application.Quit();
+            }
             void CreateLabelWithButton(GameObject labelPrefab, Vector3 position, Vector3 scale, UnityEngine.Events.UnityAction action)
             {
                 GameObject label = Object.Instantiate(labelPrefab, position, Quaternion.identity, labelsParent.transform);
                 label.transform.localScale = scale;
-                
+                    
                 GameObject button = new GameObject(labelPrefab.name + "Button");
                 button.transform.SetParent(buttonsParent.transform);
                 button.transform.position = position;
@@ -148,23 +170,25 @@ namespace Project.Scripts.Game.GameManager.States
                 Button btnComponent = button.AddComponent<Button>();
                 Image img = button.AddComponent<Image>();
                 img.color = new Color(1, 1, 1, 0); // Transparent button
-                
+                    
                 if (action != null)
                 {
                     btnComponent.onClick.AddListener(action);
                 }
             }
         }
-
-        private async void OnNewGamePressed()
+        
+        public void OnButtonPressed(string buttonName)
         {
-            Debug.Log("-----------------");
-            Debug.Log(_gameManager.GetCurrentState());
-            Debug.Log("-----------------");
+            Debug.Log($"Buton apăsat: {buttonName}");
 
-            var gameplayContext = new GameStateGameplay.Context(null);
-            _gameManager.EnqueueSwitchState<GameStateGameplay, GameStateGameplay.Context>(gameplayContext);
+            // Setăm TaskCompletionSource cu numele butonului apăsat
+            if (!_buttonPressedTCS.Task.IsCompleted)
+            {
+                _buttonPressedTCS.TrySetResult(buttonName);
+            }
         }
+        
 
         protected override void OnSuspend()
         {
@@ -177,3 +201,7 @@ namespace Project.Scripts.Game.GameManager.States
         }
     }
 }
+
+    
+    
+

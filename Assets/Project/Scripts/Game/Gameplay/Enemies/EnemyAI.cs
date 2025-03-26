@@ -41,7 +41,7 @@
         private Transform Player;
 
         private List<Transform> jumpGrounds = new List<Transform>();
-
+        
         void Start()
         {
             targetrb = target.GetComponent<Rigidbody2D>();

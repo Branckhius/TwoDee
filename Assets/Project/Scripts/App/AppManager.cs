@@ -18,12 +18,12 @@ namespace Project.Scripts.App
     {
         private readonly CancellationTokenSource _disposeCancellation;
         private readonly LifetimeScope _currentScope;
-    
+        
         private readonly IRequestHandler<CreateScopeRequest, CreateScopeResponse> _scopeCreator;
-        private readonly IRequestHandler<FetchScopeRequest, FetchScopeResponse> _scopeRetriever; //da
-
+        private readonly IRequestHandler<FetchScopeRequest, FetchScopeResponse> _scopeRetriever;
+        
         private Exception _exception;
-
+        
         [Inject]
         public AppManager(LifetimeScope currentScope,
             IRequestHandler<CreateScopeRequest, CreateScopeResponse> scopeCreator,
@@ -49,28 +49,27 @@ namespace Project.Scripts.App
             }
             catch (Exception e)
             {
-                // Log error using GameLogger
-                GameLogger.LogError($"Exception occurred: {e.Message}");
+                Console.WriteLine(e);
                 throw;
             }
         }
         
         private async UniTask RunInitialState(CancellationToken cancellationToken)
         {
-            // Log information using GameLogger
-            GameLogger.LogInformation("Run initial state");
+            Debug.Log("Run initial state"); // todo: replace debug
+            // Analytics and social
         }
-
+        
         private async UniTask RunLoadingState(CancellationToken cancellationToken)
         {
             await UniTask.NextFrame(cancellationToken); // Must wait at least one frame before creating child scope
             
-            // Log information using GameLogger
-            GameLogger.LogInformation("Run loading state");
+            Debug.Log("Run loading state"); // todo: replace debug
             
             var gameScope = default(GameScope);
             try
             {
+                // Create Scope
                 var scopeResult = _scopeCreator.Invoke(new CreateScopeRequest
                     { childName = ScopeNames.GAME_SCOPE, parentScope = _currentScope });
 
@@ -78,28 +77,25 @@ namespace Project.Scripts.App
             }
             catch (TargetInvocationException ex)
             {
-                // Log error using GameLogger
-                GameLogger.LogError($"Scope creation failed: {ex.InnerException?.Message}");
-
+                // Unwrap exception for better visibility of errors during construction
                 if (ex.InnerException == null)
                     throw;
 
                 throw ex.InnerException;
             }
-        
+            
             await UniTask.NextFrame(cancellationToken); // Must wait at least one frame before creating child scope
         }
-
+        
         private async UniTask RunPlayingState(CancellationToken cancellationToken)
         {
-            // Log information using GameLogger
-            GameLogger.LogInformation("Run playing state");
-        
+            Debug.Log("Run playing state");
+            
             var gameScope = _scopeRetriever.Invoke(new FetchScopeRequest{ scopeName = ScopeNames.GAME_SCOPE });
             var gameManager = gameScope.scope.Container.Resolve<IGameManager>();
 
-            var context = new GameStateGameplayOrResume.Context { };
-            await gameManager.StartWithState<GameStateGameplayOrResume, GameStateGameplayOrResume.Context>(context, cancellationToken);
+            var context = new GameStateGameplayOrMenu.Context { };
+            await gameManager.StartWithState<GameStateGameplayOrMenu, GameStateGameplayOrMenu.Context>(context, cancellationToken);
         }
     }
 }

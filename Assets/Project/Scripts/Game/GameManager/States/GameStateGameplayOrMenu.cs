@@ -27,19 +27,19 @@ namespace Project.Scripts.Game.GameManager.States
         {
             if (_localDataStorage.Has()) // Dacă există salvare, reia jocul
             {
-                GameData gameData = _localDataStorage.Has() ? _localDataStorage.Fetch() : null;
+                GameData gameData =_localDataStorage.Fetch();
                 Debug.Log($"Loaded Player HP: {gameData.playerRelatedData._currentHelath}");
 
                 var gameplayContext = new GameStateGameplay.Context(gameData);
                 _gameManager.EnqueueSwitchState<GameStateGameplay, GameStateGameplay.Context>(gameplayContext);
             }
-            else // Dacă nu există salvare, începe un joc nou
+            else 
             {
-                GameData gameData = new GameData();
-                var gameplayContext = new GameStateGameplay.Context(gameData);
-                _gameManager.EnqueueSwitchState<GameStateGameplay, GameStateGameplay.Context>(gameplayContext);
-                //var menuContext = new GameStateMenu.Context();
-                //_gameManager.EnqueueSwitchState<GameStateMenu, GameStateMenu.Context>(menuContext);
+                //GameData gameData = new GameData();
+                //var gameplayContext = new GameStateGameplay.Context(gameData);
+                //_gameManager.EnqueueSwitchState<GameStateGameplay, GameStateGameplay.Context>(gameplayContext);
+                var menuContext = new GameStateMenu.Context();
+                _gameManager.EnqueueSwitchState<GameStateMenu, GameStateMenu.Context>(menuContext);
 
             }
         }

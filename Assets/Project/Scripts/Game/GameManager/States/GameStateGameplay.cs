@@ -2,14 +2,12 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using MessagePipe;
 using Project.Scripts.Constants;
-using Project.Scripts.Game.Menu;
 using Project.Scripts.Game.UI.SceneSystem;
 using Project.Scripts.Messages.Requests.Game;
 using Project.Scripts.Game.Gameplay;
 using UnityEngine;
-using UnityEngine.UI;
 using VContainer;
-using Cinemachine;
+using Project.Scripts.DataCore;
 using Project.Scripts.DataCore.DataStructure;
 using Project.Scripts.Game.Gameplay.Cameras;
 using Project.Scripts.Game.Gameplay.CanvasBG;
@@ -24,11 +22,11 @@ namespace Project.Scripts.Game.GameManager.States
     {
         public class Context
         {
-            public GameData GameData { get; }
+            public GameData _gameDataa { get; }
 
-            public Context(GameData gameData)
+            public Context(GameData gameDataContext)
             {
-                GameData = gameData;
+                _gameDataa = gameDataContext;
             }
         }
 
@@ -36,19 +34,22 @@ namespace Project.Scripts.Game.GameManager.States
         private readonly IRequestHandler<CreateScopeRequest, CreateScopeResponse> _scopeCreator;
         private readonly ISceneSystem _sceneSystem;
         
-        
+        private Context _currentContext;
         private GameData _gameData;
         private PlayerHealth _playerHealth;
+        private readonly ILocalDataStorage _localDataStorage;
 
         [Inject]
         public GameStateGameplay(LifetimeScope currentScope, 
             IRequestHandler<CreateScopeRequest, CreateScopeResponse> scopeCreator, 
-            ISceneSystem sceneSystem
+            ISceneSystem sceneSystem,ILocalDataStorage localDataStorage, Context context
         )
         {
             _currentScope = currentScope;
             _scopeCreator = scopeCreator;
             _sceneSystem = sceneSystem;
+            _localDataStorage = localDataStorage;
+            _gameData = context._gameDataa;
         }
 
         protected override async UniTask OnRun(CancellationToken cancellationToken)
@@ -60,6 +61,7 @@ namespace Project.Scripts.Game.GameManager.States
                 childName = ScopeNames.GAMEPLAY_SCOPE,
                 parentScope = _currentScope,
             });
+            _gameData = Context._gameDataa;
 
             var scope = scopeResult.childScope;
             Debug.Log(scope + " scope scope");
@@ -77,14 +79,16 @@ namespace Project.Scripts.Game.GameManager.States
                 Debug.LogError("PlayerHealth component not found!");
                 return;
             }
-
             // Folosim GameData transmis prin context
             if (_gameData != null)
             {
+                Debug.Log("Intra resume");
                 ResumeGame();
             }
             else
             {
+                Debug.Log("Intra new");
+
                 StartNewGame();
             }
 
@@ -94,7 +98,7 @@ namespace Project.Scripts.Game.GameManager.States
 
             // Creare și inițializare CanvasManager pentru Background
             CanvasManager canvasManager = new CanvasManager(scene.transform, cameraManager.GameCamera);
-            canvasManager.CreateGameplayCanvas(gameplayConfig.GameplayBG, gameplayConfig.PlayerHealth);
+            canvasManager.CreateGameplayCanvas(gameplayConfig.GameplayBG, gameplayConfig.PlayerHealth, player);
 
             GameObject floor = Object.Instantiate(gameplayConfig.Floor, scene.transform);
             floor.layer = LayerMask.NameToLayer("Ground");
@@ -136,7 +140,7 @@ namespace Project.Scripts.Game.GameManager.States
                     attackDamage = 10
                 }
             };
-}
+        }
 
 
 
