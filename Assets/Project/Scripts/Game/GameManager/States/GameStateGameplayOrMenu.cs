@@ -13,25 +13,32 @@ namespace Project.Scripts.Game.GameManager.States
     {
         private readonly ILocalDataStorage _localDataStorage;
         private readonly IGameManager _gameManager;
+        private readonly IObjectResolver _resolver;
+        GameData gameData;
         
         [Inject]
-        public GameStateGameplayOrMenu(ILocalDataStorage localDataStorage, IGameManager gameManager)
+        public GameStateGameplayOrMenu(IObjectResolver resolver,ILocalDataStorage localDataStorage, IGameManager gameManager)
         {
             _localDataStorage = localDataStorage;
             _gameManager = gameManager;
+            _resolver = resolver;
         }
 
         public class Context {}
 
         protected override async UniTask OnRun(CancellationToken cancellationToken)
         {
+            
             if (_localDataStorage.Has()) // Dacă există salvare, reia jocul
             {
+                Debug.Log("a intrat .has");
                 GameData gameData =_localDataStorage.Fetch();
-                Debug.Log($"Loaded Player HP: {gameData.playerRelatedData._currentHelath}");
 
+                _resolver.Inject(gameData);
                 var gameplayContext = new GameStateGameplay.Context(gameData);
+
                 _gameManager.EnqueueSwitchState<GameStateGameplay, GameStateGameplay.Context>(gameplayContext);
+                    
             }
             else 
             {
@@ -39,11 +46,14 @@ namespace Project.Scripts.Game.GameManager.States
                 //var gameplayContext = new GameStateGameplay.Context(gameData);
                 //_gameManager.EnqueueSwitchState<GameStateGameplay, GameStateGameplay.Context>(gameplayContext);
                 var menuContext = new GameStateMenu.Context();
+
                 _gameManager.EnqueueSwitchState<GameStateMenu, GameStateMenu.Context>(menuContext);
 
             }
         }
 
+
+        
         protected override void OnSuspend()
         {
             throw new NotImplementedException();

@@ -7,6 +7,7 @@ TagManager:
   - JumpGround
   - Enemy
   - Ground
+  - DownGround
   layers:
   - Default
   - TransparentFX

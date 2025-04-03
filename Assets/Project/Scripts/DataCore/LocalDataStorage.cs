@@ -36,6 +36,7 @@ namespace Project.Scripts.DataCore
         public GameData Fetch()
         {
             var path = GetPersistentPath();
+            Debug.Log(path);
             var bytes = File.ReadAllBytes(path);
 
             var data = bytes.DecryptData();

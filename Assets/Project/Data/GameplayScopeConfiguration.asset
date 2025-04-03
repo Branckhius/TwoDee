@@ -23,4 +23,4 @@ MonoBehaviour:
   Glock: {fileID: 6624130355294542769, guid: 7a38bd92504d59f4088249808699bde6, type: 3}
   GlockBullet: {fileID: 1273324873308384663, guid: be4039c4e85062341a204ba6d1d2ad38, type: 3}
   PlayerHealth: {fileID: 7324604181523400504, guid: 3413caeddac893743895a36f90886c51, type: 3}
-  EnemyHealth: {fileID: 7659730555579129038, guid: 2b4bd2259bb00c94c9a665d09a35301a, type: 3}
+  EnemyHealth: {fileID: 3453651742766183234, guid: c85c3c8d18f6dac45a28dd7f4c9aa861, type: 3}

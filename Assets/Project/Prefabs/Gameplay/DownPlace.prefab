@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4930955034830964336}
   - component: {fileID: -8989080121792408855}
   - component: {fileID: -8814213180444782134}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: DownPlace
-  m_TagString: Untagged
+  m_TagString: DownGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

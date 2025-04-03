@@ -6,6 +6,7 @@ namespace Project.Scripts.DataCore.DataStructure
         
         public GameData()
         {
+            playerRelatedData = new PlayerRelatedData();
         }
 
         public GameData(PlayerRelatedData playerRelatedData)

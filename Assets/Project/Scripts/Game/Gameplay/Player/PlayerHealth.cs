@@ -1,3 +1,4 @@
+using System;
 using Project.Scripts.DataCore;
 using Project.Scripts.DataCore.DataStructure;
 using Project.Scripts.Game.Gameplay.Enemies;
@@ -11,6 +12,8 @@ namespace Project.Scripts.Game.Gameplay.Player
         [Header("Health Settings")] public int maxHealth ;
         private int currentHealth;
         private Animator animator;
+        public ILocalDataStorage _localDataStorage;
+        
 
         public HealthBar healthBar;
 
@@ -19,8 +22,17 @@ namespace Project.Scripts.Game.Gameplay.Player
             currentHealth = maxHealth;
             animator = GetComponent<Animator>();
             healthBar.SetMaxHealth(maxHealth);
+            if (_localDataStorage.Has())
+            {
+                GameData gameData =_localDataStorage.Fetch();
+                currentHealth = Convert.ToInt32(gameData.playerRelatedData._currentHealth);            }
+            else
+            {
+                currentHealth = maxHealth;
+            }
+            
+            healthBar.SetMaxHealth(maxHealth);
             healthBar.SetHealth(currentHealth);
-
         }
 
         public void TakeDamage(int damage)
@@ -40,9 +52,9 @@ namespace Project.Scripts.Game.Gameplay.Player
 
         public void SaveHealth()
         {
-            var gameData = new GameData(new PlayerRelatedData { _currentHelath = currentHealth });
-            gameData.playerRelatedData._currentHelath=currentHealth;
-
+            var gameData = new GameData(new PlayerRelatedData { _currentHealth = currentHealth });
+            gameData.playerRelatedData._currentHealth=currentHealth;
+            _localDataStorage.Store(gameData);
             Debug.Log("Player HP saved!");
         }
 

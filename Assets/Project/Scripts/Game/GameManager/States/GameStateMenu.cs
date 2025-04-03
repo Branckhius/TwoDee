@@ -24,24 +24,29 @@ namespace Project.Scripts.Game.GameManager.States
         private readonly ISceneSystem _sceneSystem;
         private IGameManager _gameManager;
 
-        private TaskCompletionSource<string> _buttonPressedTCS = new(); // Task pentru butoane
+        private TaskCompletionSource<string> _buttonPressedTCS = new();// Task pentru butoane
+        
+        private IObjectResolver _resolver;
 
         [Inject]
         public GameStateMenu(LifetimeScope currentScope, 
             IRequestHandler<CreateScopeRequest, CreateScopeResponse> scopeCreator, 
             ISceneSystem sceneSystem,
-            IGameManager gameManager) // Injectăm GameManager
+            IGameManager gameManager,
+            IObjectResolver resolver) // Injectăm GameManager
         {
             _currentScope = currentScope;
             _scopeCreator = scopeCreator;
             _sceneSystem = sceneSystem;
-            _gameManager = gameManager; // Salvăm referința
-            UniTask.DelayFrame(1);
+            _gameManager = gameManager;
+            _resolver = resolver;// Salvăm referința
         }
 
         protected override async UniTask OnRun(CancellationToken cancellationToken)
         {
             Debug.Log("Suntem in Menu");
+            await SetScreenOrientation(ScreenOrientation.Portrait, cancellationToken);
+
 
             var scopeResult = _scopeCreator.Invoke(new CreateScopeRequest
             {
@@ -150,8 +155,12 @@ namespace Project.Scripts.Game.GameManager.States
             {
                 Object.Destroy(scene.gameObject);
                 _buttonPressedTCS = new TaskCompletionSource<string>(); // Resetăm task-ul pentru butoane
-                var gameplayContext = new GameStateGameplay.Context(new GameData());
+                GameData gamedata=new GameData(new PlayerRelatedData());
+
+                var gameplayContext = new GameStateGameplay.Context(gamedata);
+
                 _gameManager.EnqueueSwitchState<GameStateGameplay, GameStateGameplay.Context>(gameplayContext);
+
             }
             else if (buttonName == "Exit")
             {
@@ -178,6 +187,17 @@ namespace Project.Scripts.Game.GameManager.States
             }
         }
         
+        private async UniTask SetScreenOrientation(ScreenOrientation targetOrientation, CancellationToken cancellationToken)
+        {
+            Screen.orientation = targetOrientation;
+
+            // Așteaptă până când orientarea este efectiv aplicată
+            while (Screen.orientation != targetOrientation)
+            {
+                await UniTask.Yield(cancellationToken); // Așteaptă un frame
+            }
+        }
+
         public void OnButtonPressed(string buttonName)
         {
             Debug.Log($"Buton apăsat: {buttonName}");

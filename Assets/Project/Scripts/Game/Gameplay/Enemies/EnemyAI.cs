@@ -133,7 +133,7 @@
                 }
                 else if (target.position.y + 2f < rb.transform.position.y && targetrb.velocity.y == 0 && path.path.Count < 20)
                 {
-                    Transform closestJumpGround = FindClosestDownGround();
+                    Transform closestJumpGround = FindClosestDownGround(allObjects);
                     target = closestJumpGround;
                     isJumpingToPlatform = true;
                 }
@@ -199,15 +199,16 @@
             return closest;
         }
 
-        private Transform FindClosestDownGround()
+        private Transform FindClosestDownGround(GameObject[] objects)
         {
             Transform closest = null;
             float minDistance = Mathf.Infinity;
 
             foreach (GameObject obj in allObjects)
             {
-                if (obj.layer == LayerMask.NameToLayer("DownGround"))
+                if (obj.CompareTag("DownGround"))
                 {
+                    Debug.Log(obj);
                     float distance = Vector2.Distance(obj.transform.position, target.transform.position);
                     if (distance < minDistance)
                     {
@@ -222,7 +223,7 @@
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("JumpGround"))
+            if (other.CompareTag("JumpGround"))
             {
                 
                 if (transform.position.y +2f < Player.position.y)
@@ -234,9 +235,9 @@
                     }
                 }
             }
-            else if (other.gameObject.layer == LayerMask.NameToLayer("DownGround"))
+            else if (other.CompareTag("DownGround"))
             {
-                Transform closestDownGround = FindClosestDownGround();
+                Transform closestDownGround = FindClosestDownGround(allObjects);
                 if (closestDownGround != null)
                 {
                     target = closestDownGround;
@@ -248,7 +249,7 @@
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("JumpGround") && transform.position.y + 2f < Player.position.y)
+            if (other.CompareTag("JumpGround") && transform.position.y + 2f < Player.position.y)
             {
                 RaycastHit2D isGrounded = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0, Vector2.down, 0.05f, jumpableGround);
                 if (isGrounded)
@@ -261,7 +262,7 @@
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("JumpGround") || other.gameObject.layer == LayerMask.NameToLayer("DownGround"))
+            if (other.CompareTag("JumpGround") || other.CompareTag("DownGround"))
             {
 
                 target = Player;
