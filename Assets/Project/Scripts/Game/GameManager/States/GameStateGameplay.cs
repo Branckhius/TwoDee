@@ -78,6 +78,7 @@
                 Debug.Log($"Health curent: {_gameData.playerRelatedData._currentHealth}");
 
                 
+                
 
                 // Folosim GameData transmis prin context
                 if (_gameData.playerRelatedData._currentHealth <= 0)
@@ -98,7 +99,7 @@
 
                 // Creare și inițializare CanvasManager pentru Background
                 CanvasManager canvasManager = new CanvasManager(scene.transform, cameraManager.GameCamera);
-                canvasManager.CreateGameplayCanvas(gameplayConfig.GameplayBG, gameplayConfig.PlayerHealth, player);
+                canvasManager.CreateGameplayCanvas(gameplayConfig.GameplayBG, gameplayConfig.PlayerHealth, gameplayConfig.Joystick,gameplayConfig.JumpButton, player);
 
                 GameObject floor = Object.Instantiate(gameplayConfig.Floor, scene.transform);
                 floor.layer = LayerMask.NameToLayer("Ground");

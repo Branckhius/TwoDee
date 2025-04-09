@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Project.Scripts.Game.Gameplay.Player
 {
@@ -11,7 +12,7 @@ namespace Project.Scripts.Game.Gameplay.Player
         private Rigidbody2D rb;
         private Animator animator;
         private int jumpCount = 0;
-        private int maxJumps = 1;
+        private int maxJumps = 2;
         private bool isGrounded;
         private bool isFacingRight = false;
 
@@ -20,10 +21,17 @@ namespace Project.Scripts.Game.Gameplay.Player
         public GameplayScopeConfiguration _gameplayConfig;
         public Camera _camera;
         
+        public FixedJoystick _joystick;
+        private Collider2D playerCollider;
+        private Collider2D platformCollider;
+        private bool isOnPlatform = false;
+        
+        
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            playerCollider = GetComponent<Collider2D>();
             rb.gravityScale = 2f;
             rb.freezeRotation = true;
             groundLayer = LayerMask.GetMask("Ground");
@@ -36,11 +44,12 @@ namespace Project.Scripts.Game.Gameplay.Player
             SetWeapon(glockWeapon);
         }
 
-        void Update()
+        void Update()//nu schimba fixedupdate, numai daca faci un update special pentru joystick
         {
-            float moveX = Input.GetAxis("Horizontal");
+            float moveX = _joystick.Horizontal;
             rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
-    
+
+            
             // Schimbă direcția doar când player-ul se mișcă
             if (moveX > 0 && isFacingRight) 
             {
@@ -57,7 +66,45 @@ namespace Project.Scripts.Game.Gameplay.Player
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer);
             Debug.DrawRay(transform.position, Vector2.down * 1.2f, hit.collider ? Color.green : Color.red);
             isGrounded = hit.collider != null;
+            PlatformEffector2D effector = hit.collider.GetComponent<PlatformEffector2D>();
+            Debug.Log(_joystick.Vertical);
 
+            if (hit.collider != null) 
+            {
+                // Verificăm dacă obiectul detectat are tag-ul "Platform"
+                if (hit.collider.CompareTag("Platform"))
+                {
+                    // Setăm platforma ca fiind sub jucător
+                    platformCollider = hit.collider;
+                    Collider2D col = hit.collider.GetComponent<BoxCollider2D>();
+                    isGrounded = true;
+                    // Dacă joystick-ul este apăsat în jos, ignoră coliziunea cu platforma
+                    if (_joystick.Vertical < -0.47)  // Joystick-ul în jos
+                    {
+                        //hit.collider.isTrigger = true;
+                        effector.surfaceArc = 0f;
+                        //Physics2D.IgnoreCollision(playerCollider, hit.collider, true);
+                    }
+                    else
+                    {
+                        effector.surfaceArc = 157.53f;
+
+                    }
+
+                    /*if (hit.collider.CompareTag("Ground"))
+                    {
+                        effector.surfaceArc = 157.53f;
+
+                    }*/
+
+                }
+            }
+            else
+            {
+
+                isGrounded = false;
+                platformCollider = null; // Dacă nu mai este pe sol, nu mai avem platformă
+            }
             if (isGrounded)
             {
                 jumpCount = 0; // Resetează săriturile
@@ -66,8 +113,7 @@ namespace Project.Scripts.Game.Gameplay.Player
             // Săritura și double jump
             if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                jumpCount++;
+                Jump();
             }
 
             // Setează parametrii în Animator
@@ -89,6 +135,14 @@ namespace Project.Scripts.Game.Gameplay.Player
                 animator.SetBool("Jump", false); // Player-ul coboară
             }
             
+        }
+        public void Jump()
+        {
+            if (jumpCount < maxJumps)//pus if aici iar pentru joystick, iar mai sus e pentru keyboard
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                jumpCount++;
+            }
         }
         
         public void SetWeapon(Weapon weapon)
@@ -121,6 +175,7 @@ namespace Project.Scripts.Game.Gameplay.Player
             float screenWidthUnits = _camera.orthographicSize * (Screen.width / (float)Screen.height) * 0.42f;
             currentWeapon.transform.localScale = new Vector3(screenWidthUnits, screenWidthUnits, 1f);
         }
+        
 
     }
 }

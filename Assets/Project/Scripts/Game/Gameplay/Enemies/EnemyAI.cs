@@ -41,11 +41,13 @@
         private Transform Player;
 
         private List<Transform> jumpGrounds = new List<Transform>();
+
+        private float jumpCooldown = 0f;
         
         void Start()
         {
             targetrb = target.GetComponent<Rigidbody2D>();
-            ReplacedTarget = target;
+            ReplacedTarget = Player;
             allObjects = GameObject.FindObjectsOfType<GameObject>();
             foreach (GameObject obj in allObjects)
             {
@@ -69,11 +71,14 @@
 
         private void FixedUpdate()
         {
+            //jumpCooldown -= Time.deltaTime;
             if (TargetInDistance() && followEnabled)
             {
-                if (isJumpingToPlatform && Mathf.Abs(transform.position.y - ReplacedTarget.position.y) < 0.5f)
+                if (isJumpingToPlatform && Mathf.Abs(transform.position.y - Player.position.y) < 2f)
                 {
-                    target = ReplacedTarget;
+
+                    target = Player;
+
                     isJumpingToPlatform = false;
                     UpdatePath();
                 }
@@ -87,7 +92,7 @@
             jumpableGround = LayerMask.GetMask("Ground");
             if (followEnabled && TargetInDistance() && seeker.IsDone())
             {
-                Transform currentTarget = isJumpingToPlatform ? target : ReplacedTarget;
+                Transform currentTarget = isJumpingToPlatform ? target : Player;
                 BoxCollider2D targetCollider = currentTarget.GetComponent<BoxCollider2D>();
                 Vector2 adjustedTarget = new Vector2(
                     currentTarget.position.x, 
@@ -124,11 +129,13 @@
             if (jumpEnabled && isGrounded)
             {
                 targetrb = target.GetComponent<Rigidbody2D>();
-                if (target.position.y -2f > rb.transform.position.y)// && targetrb.velocity.y == 0 && path.path.Count < 20)
+                if (target.position.y -2f > rb.transform.position.y && targetrb.velocity.y == 0 && path.path.Count < 20)
                 {
                     Transform closestJumpGround = FindClosestJumpGround();
                     Debug.Log($"Schimb target-ul la: {closestJumpGround.name}");
+
                     target = closestJumpGround;
+
                     isJumpingToPlatform = true;
                 }
                 else if (target.position.y + 2f < rb.transform.position.y && targetrb.velocity.y == 0 && path.path.Count < 20)
@@ -208,7 +215,6 @@
             {
                 if (obj.CompareTag("DownGround"))
                 {
-                    Debug.Log(obj);
                     float distance = Vector2.Distance(obj.transform.position, target.transform.position);
                     if (distance < minDistance)
                     {
@@ -226,7 +232,7 @@
             if (other.CompareTag("JumpGround"))
             {
                 
-                if (transform.position.y +2f < Player.position.y)
+                if (transform.position.y < Player.position.y-1f)
                 {
                     RaycastHit2D isGrounded = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0, Vector2.down, 0.05f, jumpableGround);
                     if (isGrounded)
@@ -238,7 +244,7 @@
             else if (other.CompareTag("DownGround"))
             {
                 Transform closestDownGround = FindClosestDownGround(allObjects);
-                if (closestDownGround != null)
+                if (closestDownGround != null && transform.position.y -2f < Player.position.y)
                 {
                     target = closestDownGround;
                     isJumpingToPlatform = true;
@@ -264,7 +270,6 @@
         {
             if (other.CompareTag("JumpGround") || other.CompareTag("DownGround"))
             {
-
                 target = Player;
                 isJumpingToPlatform = false;
                 UpdatePath();

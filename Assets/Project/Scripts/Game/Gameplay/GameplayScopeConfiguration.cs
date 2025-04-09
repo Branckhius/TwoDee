@@ -17,7 +17,8 @@ namespace Project.Scripts.Game.Gameplay
         public GameObject GlockBullet;
         public GameObject PlayerHealth;
         public GameObject EnemyHealth;
-
+        public GameObject Joystick;
+        public GameObject JumpButton;
 
     }
 }

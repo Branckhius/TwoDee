@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Ground
   - DownGround
+  - Platform
   layers:
   - Default
   - TransparentFX
