@@ -195,7 +195,7 @@
 
             foreach (Transform obj in jumpGrounds)
             {
-                float distance = Vector2.Distance(obj.position, transform.position);
+                float distance = Vector2.Distance(obj.position, Player.transform.position);
                 if (distance < minDistance)
                 {
                     minDistance = distance;
@@ -215,7 +215,7 @@
             {
                 if (obj.CompareTag("DownGround"))
                 {
-                    float distance = Vector2.Distance(obj.transform.position, target.transform.position);
+                    float distance = Vector2.Distance(obj.transform.position, Player.transform.position);
                     if (distance < minDistance)
                     {
                         minDistance = distance;

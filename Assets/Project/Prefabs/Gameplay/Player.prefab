@@ -168,15 +168,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907e99132d9ce9543bcb49ab21228e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 7
   jumpForce: 12
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  maxJumps: 2
   _gameplayConfig: {fileID: 0}
   _camera: {fileID: 0}
   _joystick: {fileID: 0}
-  platform: {fileID: 8458788614711714507, guid: 699959cc28941bb408d70bace4ec1aaf, type: 3}
 --- !u!95 &-3749284576383347127
 Animator:
   serializedVersion: 5

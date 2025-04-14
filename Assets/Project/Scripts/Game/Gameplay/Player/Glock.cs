@@ -11,7 +11,7 @@ namespace Project.Scripts.Game.Gameplay.Player
         public Animator animator;       // Animatorul armei
         private bool canShoot = true;
         private int shotsFired = 0;     // Contor pentru numărul de focuri
-        private const int maxShots = 7; // Numărul maxim de focuri înainte de reload
+        public int maxAmmo { get; } = 7; // Numărul maxim de focuri înainte de reload
         public Transform firePoint; // Locul de unde iese glonțul
         public GameplayScopeConfiguration gameplayConfig;
         private GameObject shotsShot;
@@ -19,6 +19,7 @@ namespace Project.Scripts.Game.Gameplay.Player
 
         void Start()
         {
+
             animator = GetComponent<Animator>();
             firePoint = new GameObject("FirePoint").transform;
             firePoint.SetParent(transform); // Face parte din Glock
@@ -77,7 +78,7 @@ namespace Project.Scripts.Game.Gameplay.Player
             // Așteaptă 10% mai puțin timp înainte de a putea trage din nou
             await UniTask.Delay(500);
 
-            if (shotsFired >= maxShots)
+            if (shotsFired >= maxAmmo)
             {
                 await Reload();
             }

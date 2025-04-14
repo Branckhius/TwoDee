@@ -1,3 +1,6 @@
+using System;
+using Cysharp.Threading.Tasks;
+using Project.Scripts.Game.Gameplay.CanvasBG;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,14 +8,14 @@ namespace Project.Scripts.Game.Gameplay.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        public float moveSpeed = 5f;
+        public float moveSpeed = 7f;
         public float jumpForce = 20f;
         public LayerMask groundLayer;
     
         private Rigidbody2D rb;
         private Animator animator;
         private int jumpCount = 0;
-        private int maxJumps = 2;
+        public int maxJumps = 2;
         private bool isGrounded;
         private bool isFacingRight = false;
 
@@ -20,7 +23,8 @@ namespace Project.Scripts.Game.Gameplay.Player
         private Weapon currentWeapon;
         public GameplayScopeConfiguration _gameplayConfig;
         public Camera _camera;
-        
+        public CanvasManager canvasManager;
+
         public FixedJoystick _joystick;
         private Collider2D playerCollider;
         private Collider2D platformCollider;
@@ -61,12 +65,22 @@ namespace Project.Scripts.Game.Gameplay.Player
                 transform.eulerAngles = new Vector3(0, 0f, 0);
                 isFacingRight = true;
             }
+            Vector2 size = GetComponent<Collider2D>().bounds.size;
 
-            // Verifică dacă e pe sol
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer);
-            Debug.DrawRay(transform.position, Vector2.down * 1.2f, hit.collider ? Color.green : Color.red);
+// Start point: colțul dreapta-jos, ridicat puțin mai mult ca să nu fie prea jos
+            Vector2 bottomRight = (Vector2)transform.position + new Vector2(size.x / 2f, -size.y / 2f + 1);
+
+// Direcția orizontală spre stânga
+            Vector2 direction = Vector2.left;
+            float rayDistance = size.x;
+
+            RaycastHit2D hit = Physics2D.Raycast(bottomRight, direction, rayDistance, groundLayer);
+            Debug.DrawRay(bottomRight, direction * rayDistance, hit.collider ? Color.green : Color.red);
+
+
+
             isGrounded = hit.collider != null;
-            PlatformEffector2D effector = hit.collider.GetComponent<PlatformEffector2D>();
+            
             Debug.Log(_joystick.Vertical);
 
             if (hit.collider != null) 
@@ -74,6 +88,8 @@ namespace Project.Scripts.Game.Gameplay.Player
                 // Verificăm dacă obiectul detectat are tag-ul "Platform"
                 if (hit.collider.CompareTag("Platform"))
                 {
+                    PlatformEffector2D effector = hit.collider.GetComponent<PlatformEffector2D>();
+
                     // Setăm platforma ca fiind sub jucător
                     platformCollider = hit.collider;
                     Collider2D col = hit.collider.GetComponent<BoxCollider2D>();
@@ -82,12 +98,13 @@ namespace Project.Scripts.Game.Gameplay.Player
                     if (_joystick.Vertical < -0.47)  // Joystick-ul în jos
                     {
                         //hit.collider.isTrigger = true;
-                        effector.surfaceArc = 0f;
+                        //effector.surfaceArc = 0f;
                         //Physics2D.IgnoreCollision(playerCollider, hit.collider, true);
+                        TemporarilyIgnoreCollision(playerCollider,col).Forget();;
                     }
                     else
                     {
-                        effector.surfaceArc = 157.53f;
+                        
 
                     }
 
@@ -105,9 +122,10 @@ namespace Project.Scripts.Game.Gameplay.Player
                 isGrounded = false;
                 platformCollider = null; // Dacă nu mai este pe sol, nu mai avem platformă
             }
-            if (isGrounded)
+            if (isGrounded && rb.velocity.y==0)
             {
-                jumpCount = 0; // Resetează săriturile
+                jumpCount = 0;   // Resetează săriturile
+                UpdateJumpIcons();
             }
 
             // Săritura și double jump
@@ -122,7 +140,7 @@ namespace Project.Scripts.Game.Gameplay.Player
             animator.SetBool("isGrounded", isGrounded);
 
             // Animațiile de Jump în funcție de viteza verticală
-            if (isGrounded)
+            if (isGrounded && rb.velocity.y==0)
             {
                 animator.SetBool("Jump", false); // Player-ul este pe sol
             }
@@ -142,7 +160,26 @@ namespace Project.Scripts.Game.Gameplay.Player
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumpCount++;
+                
+                UpdateJumpIcons();
             }
+        }
+        
+        private async UniTask TemporarilyIgnoreCollision(Collider2D playerCollider,Collider2D platformColliderr)
+        {
+            Debug.Log("yaaa1");
+            if (playerCollider == null) return;
+            Debug.Log("yaaa2");
+
+            Collider2D platformCollider = GetComponent<Collider2D>();
+            if (platformCollider == null) return;
+            Debug.Log("yaaa3");
+
+            Physics2D.IgnoreCollision(playerCollider, platformColliderr, true);
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+            Physics2D.IgnoreCollision(playerCollider, platformColliderr, false);
+            Debug.Log("yaaa4");
+
         }
         
         public void SetWeapon(Weapon weapon)
@@ -175,6 +212,22 @@ namespace Project.Scripts.Game.Gameplay.Player
             float screenWidthUnits = _camera.orthographicSize * (Screen.width / (float)Screen.height) * 0.42f;
             currentWeapon.transform.localScale = new Vector3(screenWidthUnits, screenWidthUnits, 1f);
         }
+        
+        private void UpdateJumpIcons()
+        {
+            for (int i = 0; i < canvasManager.jumpActiveIcons.Count; i++)
+            {
+                if (i < maxJumps - jumpCount)
+                {
+                    canvasManager.jumpActiveIcons[i].SetActive(true);
+                }
+                else
+                {
+                    canvasManager.jumpActiveIcons[i].SetActive(false);
+                }
+            }
+        }
+
         
 
     }

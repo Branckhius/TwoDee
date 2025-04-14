@@ -26,3 +26,6 @@ MonoBehaviour:
   EnemyHealth: {fileID: 3453651742766183234, guid: c85c3c8d18f6dac45a28dd7f4c9aa861, type: 3}
   Joystick: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
   JumpButton: {fileID: 6148350119633860126, guid: 83fb9685ee9a00344ab8694189fd7d1f, type: 3}
+  jump_circle_active: {fileID: 7609358606981676851, guid: c122dd55ea3322d4c8aeeadf591625e7, type: 3}
+  jump_circle_used: {fileID: 7609358606981676851, guid: f7be9f3ac4c0f8b4aad3496172db2a2e, type: 3}
+  AmmoOnScreen: {fileID: 5367486126591653489, guid: d1a2a6df4f852424386c98dcedffeecb, type: 3}

@@ -19,6 +19,9 @@ namespace Project.Scripts.Game.Gameplay
         public GameObject EnemyHealth;
         public GameObject Joystick;
         public GameObject JumpButton;
+        public GameObject jump_circle_active;
+        public GameObject jump_circle_used;
+        public GameObject AmmoOnScreen;
 
     }
 }

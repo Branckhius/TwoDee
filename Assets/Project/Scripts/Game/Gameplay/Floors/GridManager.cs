@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks.Triggers;
 using Pathfinding;
 using UnityEngine;
 
@@ -33,11 +34,15 @@ namespace Project.Scripts.Game.Gameplay.Floors
             float gridHeight = topRight.y - bottomLeft.y;
             int widthNodes = Mathf.RoundToInt(gridWidth);
             int heightNodes = Mathf.RoundToInt(gridHeight);
+            _astarObject.transform.position = new Vector3(Mathf.Abs(cameraPosition.x), cameraPosition.y, 0);
+
 
             _grid.SetDimensions(widthNodes, heightNodes, 0.98f);
+            _grid.center = new Vector3(cameraPosition.x, cameraPosition.y, 0);
+
             _pfController.Scan();
 
-            _astarObject.transform.position = new Vector3(Mathf.Abs(cameraPosition.x), cameraPosition.y, 0);
         }
+
     }
 }

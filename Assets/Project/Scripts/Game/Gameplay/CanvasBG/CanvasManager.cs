@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using Project.Scripts.Game.Gameplay.Player;
-using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 namespace Project.Scripts.Game.Gameplay.CanvasBG
@@ -9,6 +10,9 @@ namespace Project.Scripts.Game.Gameplay.CanvasBG
     {
         private Transform _parent;
         private Camera _gameCamera;
+        public List<GameObject> jumpActiveIcons = new List<GameObject>();
+
+        public int jumpsTotal;
 
         public CanvasManager(Transform parent, Camera gameCamera)
         {
@@ -16,7 +20,7 @@ namespace Project.Scripts.Game.Gameplay.CanvasBG
             _gameCamera = gameCamera;
         }
 
-        public void CreateGameplayCanvas(GameObject gameplayBGPrefab, GameObject playerHealthPrefab, GameObject joystick,GameObject jumpButton,GameObject player)
+        public void CreateGameplayCanvas(GameObject gameplayBGPrefab, GameObject playerHealthPrefab, GameObject joystick,GameObject jumpButton,GameObject jump_active,GameObject jump_used, GameObject AmmoOnScreen ,GameObject player)
         {
             // Creare Canvas pentru Background
             GameObject canvasObj = new GameObject("BackGameplayCanvas");
@@ -90,10 +94,44 @@ namespace Project.Scripts.Game.Gameplay.CanvasBG
             }
 
             PlayerController playerContr = player.GetComponent<PlayerController>();
+            playerContr.canvasManager = this;
             playerContr._joystick = joy.GetComponent<FixedJoystick>();
-            joy.SetActive(true);
-            
+            jumpsTotal = playerContr.maxJumps;
+            int spacing = 48;
+            for (int i = 0; i < jumpsTotal; i++)
+            {
+                GameObject jumpused = GameObject.Instantiate(jump_used, canvasObj2.transform);
+                jumpused.name=$"jumpUsed {i}";
+                
+                GameObject jumpactive = GameObject.Instantiate(jump_active, canvasObj2.transform);
+                jumpactive.name = $"jumpActive {i}";
+                jumpActiveIcons.Add(jumpactive);
+                RectTransform jumpUsed = jumpused.GetComponent<RectTransform>();
+                RectTransform jumpActive = jumpactive.GetComponent<RectTransform>();
+                jumpUsed.anchoredPosition = (new Vector2(-270-i*spacing, 37));
+                jumpActive.anchoredPosition = (new Vector2(-270-i*spacing, 37));
 
+
+            }
+
+            // ===== Joystick Touch Area Full Screen =====                                              ASTAAAAAAAAAAAAAAAAAAAAAA
+            /*GameObject touchArea = new GameObject("JoystickTouchArea");
+            touchArea.transform.SetParent(canvasObj2.transform, false);
+
+            RectTransform touchRect = touchArea.AddComponent<RectTransform>();
+            touchRect.anchorMin = Vector2.zero;
+            touchRect.anchorMax = Vector2.one;
+            touchRect.offsetMin = Vector2.zero;
+            touchRect.offsetMax = Vector2.zero;
+
+            Image touchImage = touchArea.AddComponent<Image>();
+            touchImage.color = new Color(0, 0, 0, 0); // invizibil
+            touchImage.raycastTarget = true;*/
+
+            JoystickController joystickController = joy.AddComponent<JoystickController>();
+            joystickController.joystickImage = joyRectTransform;
+            
+            joy.SetActive(true);
             
             GameObject jumpButt = GameObject.Instantiate(jumpButton, canvasObj2.transform);
             RectTransform jumpButtRectTransform=jumpButt.GetComponent<RectTransform>();
@@ -104,8 +142,15 @@ namespace Project.Scripts.Game.Gameplay.CanvasBG
             Button jumpBtnComponent = jumpButt.GetComponent<Button>();
             jumpBtnComponent.onClick.AddListener(() => playerContr.Jump());
 
-
+            Glock glock = player.GetComponentInChildren<Glock>();
+            /*for (int i = 0; i < glock.maxAmmo; i++)
+            {
+                GameObject ammoInstance = GameObject.Instantiate(AmmoOnScreen, canvasObj2.transform);
+                ammoInstance.name = $"Ammo_{i}";
+            }*/
+            
+            
+            
         }
-
     }
 }

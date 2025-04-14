@@ -99,7 +99,8 @@
 
                 // Creare și inițializare CanvasManager pentru Background
                 CanvasManager canvasManager = new CanvasManager(scene.transform, cameraManager.GameCamera);
-                canvasManager.CreateGameplayCanvas(gameplayConfig.GameplayBG, gameplayConfig.PlayerHealth, gameplayConfig.Joystick,gameplayConfig.JumpButton, player);
+                canvasManager.CreateGameplayCanvas(gameplayConfig.GameplayBG, gameplayConfig.PlayerHealth, gameplayConfig.Joystick, gameplayConfig.JumpButton
+                    , gameplayConfig.jump_circle_active, gameplayConfig.jump_circle_used, gameplayConfig.AmmoOnScreen, player);
 
                 GameObject floor = Object.Instantiate(gameplayConfig.Floor, scene.transform);
                 floor.layer = LayerMask.NameToLayer("Ground");
@@ -123,6 +124,7 @@
                 noExitUpdater.cameraHeight = cameraManager.GameCamera.orthographicSize * 2f;
                 noExitUpdater.Scene = scene;
                 noExitUpdater.camera = cameraManager.GameCamera;
+                
             }
             private void ResumeGame()
             {
@@ -162,6 +164,7 @@
 
             protected override void OnResume()
             {
+
                 throw new System.NotImplementedException();
             }
         }

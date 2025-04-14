@@ -56,7 +56,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
     }
-
+    public void Setup(RectTransform background, RectTransform handle)
+    {
+        this.background = background;
+        this.handle = handle;
+    }
     public virtual void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);

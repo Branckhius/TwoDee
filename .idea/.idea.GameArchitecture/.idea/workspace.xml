@@ -8,6 +8,8 @@
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/GameManager/States/GameStateGameplay.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/GameManager/States/GameStateGameplay.cs.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/CanvasBG/JoystickController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/CanvasBG/JoystickController.cs.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/Enemies/Enemy.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/Enemies/Enemy.cs.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Project/Scripts/Game/Gameplay/Enemies/Health.cs" afterDir="false" />
@@ -208,6 +210,13 @@
       <workItem from="1744112006773" duration="1738000" />
       <workItem from="1744128537025" duration="4941000" />
       <workItem from="1744149717159" duration="8835000" />
+      <workItem from="1744230147146" duration="3348000" />
+      <workItem from="1744238895830" duration="5838000" />
+      <workItem from="1744283300823" duration="9785000" />
+      <workItem from="1744367975524" duration="1954000" />
+      <workItem from="1744478300912" duration="7334000" />
+      <workItem from="1744564389847" duration="6785000" />
+      <workItem from="1744579714555" duration="594000" />
     </task>
     <servers />
   </component>
